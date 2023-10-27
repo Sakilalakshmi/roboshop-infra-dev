@@ -2,8 +2,8 @@
 # Ingress Rules, refer sg.yaml for full reference
 module "vpn_sg" {
   source = "../../terraform-aws-security-group"
-  project_name = "${var.project_name}-vpn-${var.env}"
-  sg_name = "roboshop-vpn"
+  project_name = var.project_name
+  sg_name = "${var.project_name}-vpn-${var.env}"
   sg_description = "Allowing all ports from my home IP"
   #sg_ingress_rules = var.sg_ingress_rules
   vpc_id = data.aws_vpc.default.id
